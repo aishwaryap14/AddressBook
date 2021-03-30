@@ -17,10 +17,16 @@ public class AddressBookmain {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome To Address Book");
 
-        // Adding personal details to address book
-        addressBookmain.contact = addressFun.getUserContactDetails();
-        addressFun.displayUserContactDetails();
+        System.out.println("Enter choice code for operation to perform: ");
+        int choice=sc.nextInt();
+        switch (choice) {
+            // Adding personal details to address book
+            case 1:  addressBookmain.contact = addressFun.getUserContactDetails();
+            case 2:addressFun.displayUserContactDetails();
 
+            case 3:addressFun.editContactDetails();
+            default:main(args);
+        }
     }
 
 
@@ -33,7 +39,17 @@ public class AddressBookmain {
         {
             return false;}
         { return true;}
-    }}
+    }
+
+    public boolean editcontact(Contact contact)
+    {
+        this.contact=contact;
+        if(this.contact==null)
+        {
+            return false;}
+        { return true;}
+    }
+}
 
 
 

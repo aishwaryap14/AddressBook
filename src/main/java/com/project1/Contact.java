@@ -26,6 +26,10 @@ public class Contact {
         this.zip = zip;
     }
 
+    public Contact() {
+
+    }
+
     public String getFirstname() {
         return firstname;
     }
