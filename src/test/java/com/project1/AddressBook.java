@@ -7,17 +7,11 @@ import org.junit.Test;
 public class AddressBook {
     @Test
     public void createContact_whenProper_returnTRue() {
-        Contact contact = new Contact("AA","bb","3344","aside");
+        Contact contact = new Contact("Aishwarya","P","9876543","aishwarya@gmail.com","Nashik road","Nashik","maharashtra","333444");
         AddressBookmain addressBookmain = new AddressBookmain();
         boolean contactState= addressBookmain.createContact(contact);
         Assert.assertEquals(true,contactState);
     }
 
-    @Test
-    public void createAddress_whenProper_returnTrue() {
-        Address address =new Address("Nagpur","MH","2345");
-        AddressBookmain addressBookmain=new AddressBookmain();
-        boolean addressContact= addressBookmain.createAddress(address);
-        Assert.assertEquals(true,addressContact);
-    }
+
 }

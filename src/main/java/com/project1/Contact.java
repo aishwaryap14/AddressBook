@@ -3,19 +3,27 @@ package com.project1;
 
 
 public class Contact {
-    private  Address Address;
+
     private String firstname;
     private String lastname;
     private String phoneNo;
     private String email;
-   // Address address;
+    private String address;
+    private String city;
+    private String state;
+    private String zip;
 
-    public Contact(String firstname, String lastname, String phoneNo, String email) {
+    public Contact(String firstname, String lastname, String phoneNo,
+                   String email, String address1, String city, String state, String zip) {
+
         this.firstname = firstname;
         this.lastname = lastname;
         this.phoneNo = phoneNo;
         this.email = email;
-       // this.Address= address;
+        this.address = address1;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
     }
 
     public String getFirstname() {
@@ -50,23 +58,50 @@ public class Contact {
         this.email = email;
     }
 
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
+    public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "firstname='" + firstname + '\'' +
+        return "{" +
+
+                ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", phoneNo='" + phoneNo + '\'' +
                 ", email='" + email + '\'' +
-
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
                 '}';
     }
 }
