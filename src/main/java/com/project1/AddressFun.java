@@ -39,25 +39,21 @@ public class AddressFun {
 
     static void displayUserContactDetails() {
         //To display personal details
-        for (int i=0;i<contacts.size();i++)
-        {
-            System.out.println("Person's Details: "+contacts.get(i));
+        for (int i = 0; i < contacts.size(); i++) {
+            System.out.println("Person's Details: " + contacts.get(i));
         }
-
 
 
     }
 
 
-    static Contact  editContactDetails() {
+    static Contact editContactDetails() {
         System.out.println("Enter First name: ");
-        String name=sc.nextLine();
-        for (int i=0;i<contacts.size();i++)
-        {
-            Contact contact=contacts.get(i);
+        String name = sc.nextLine();
+        for (int i = 0; i < contacts.size(); i++) {
+            Contact contact = contacts.get(i);
 
-            if (name.equalsIgnoreCase(contact.getFirstname()))
-            {
+            if (name.equalsIgnoreCase(contact.getFirstname())) {
                 System.out.println("Enter below details: ");
 
                 System.out.println("Update First Name= ");
@@ -86,11 +82,34 @@ public class AddressFun {
                 contact.setZip(zip);
 
             }
+            else
+            {
+                System.out.println("No such Contact Available !!");
+            }
 
         }
 
         Contact contact = new Contact();
         contacts.add(contact);
+        displayUserContactDetails();
         return contact;
+    }
+
+    static void deleteContactDetails()
+    {
+        System.out.println("Enter First name which you want to delete: ");
+        String name = sc.nextLine();
+        for (int i = 0; i < contacts.size(); i++) {
+            Contact contact = contacts.get(i);
+            if (name.equalsIgnoreCase(contact.getFirstname()))
+            {
+                contacts.remove(i);
+            }
+            else
+            {
+                System.out.println("No such Contact Available !!");
+            }
+        }
+        displayUserContactDetails();
     }
 }

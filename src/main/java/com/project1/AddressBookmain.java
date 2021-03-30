@@ -25,7 +25,9 @@ public class AddressBookmain {
             case 2:addressFun.displayUserContactDetails();
 
             case 3:addressFun.editContactDetails();
+            case 4:addressFun.deleteContactDetails();
             default:main(args);
+
         }
     }
 
@@ -42,6 +44,14 @@ public class AddressBookmain {
     }
 
     public boolean editcontact(Contact contact)
+    {
+        this.contact=contact;
+        if(this.contact==null)
+        {
+            return false;}
+        { return true;}
+    }
+    public boolean deletecontact(Contact contact)
     {
         this.contact=contact;
         if(this.contact==null)
