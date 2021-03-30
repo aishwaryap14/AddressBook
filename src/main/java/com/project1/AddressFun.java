@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddressFun {
+    private static int count;
     Contact contact;
     private static Scanner sc = new Scanner(System.in);
     public static List<Contact> contacts = new ArrayList();
+    //int count=0;
 
     //Create contacts in address book
     static Contact getUserContactDetails() {
@@ -32,6 +34,7 @@ public class AddressFun {
 
         Contact contact = new Contact(firstname, lastname, phoneNo, email, address, city, state, zip);
         contacts.add(contact);
+        count++;
 
         return contact;
 
@@ -39,7 +42,7 @@ public class AddressFun {
 
     static void displayUserContactDetails() {
         //To display personal details
-        for (int i = 0; i < contacts.size(); i++) {
+        for (int i = 0; i < count; i++) {
             System.out.println("Person's Details: " + contacts.get(i));
         }
 
@@ -50,7 +53,7 @@ public class AddressFun {
     static Contact editContactDetails() {
         System.out.println("Enter First name: ");
         String name = sc.nextLine();
-        for (int i = 0; i < contacts.size(); i++) {
+        for (int i = 0; i < count; i++) {
             Contact contact = contacts.get(i);
 
             if (name.equalsIgnoreCase(contact.getFirstname())) {
@@ -99,11 +102,12 @@ public class AddressFun {
     {
         System.out.println("Enter First name which you want to delete: ");
         String name = sc.nextLine();
-        for (int i = 0; i < contacts.size(); i++) {
+        for (int i = 0; i < count; i++) {
             Contact contact = contacts.get(i);
             if (name.equalsIgnoreCase(contact.getFirstname()))
             {
                 contacts.remove(i);
+                count--;
             }
             else
             {

@@ -17,15 +17,19 @@ public class AddressBookmain {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome To Address Book");
 
-        System.out.println("Enter choice code for operation to perform: ");
+        System.out.println("Enter choice code for operation to perform: 1.Add contact details \n 2.Display Contact details \n" +
+                "3.Edit Contact details \n 4.Delete contact details");
         int choice=sc.nextInt();
         switch (choice) {
             // Adding personal details to address book
             case 1:  addressBookmain.contact = addressFun.getUserContactDetails();
-            case 2:addressFun.displayUserContactDetails();
-
-            case 3:addressFun.editContactDetails();
-            case 4:addressFun.deleteContactDetails();
+                     //break;
+            case 2:  addressFun.displayUserContactDetails();
+                     //break;
+            case 3:  addressFun.editContactDetails();
+                     //break;
+            case 4:  addressFun.deleteContactDetails();
+                    // break;
             default:main(args);
 
         }
