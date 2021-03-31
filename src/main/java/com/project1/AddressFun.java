@@ -167,12 +167,19 @@ public class AddressFun {
     static void displayContactsByCity(List<Contact>contacts) {
         System.out.println("Please enter the name of city:");
         String choice = sc.nextLine();
+        int countContacts=0;
         for (int i = 0; i< contacts.size(); i++)
         {
-            if (contacts.get(i).getCity() == choice );
+            if (contacts.get(i).getCity().equalsIgnoreCase(choice)  ) {
+                countContacts++;
+                System.out.println("Address Book of City: " + choice + " " + contacts);
+                System.out.println("There are total " + countContacts + "Contacts available of City: " + choice);
+            }
+            else{
+                System.out.println("Wrong City name");}
                // return contacts.get(i);
         }
-        System.out.println("Address Book of City: "+choice+" "+contacts);
+
 
     }
 }
