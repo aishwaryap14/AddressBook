@@ -76,6 +76,7 @@ public class AddressFun {
 
         List<Contact> displayContact = new ArrayList<>();
         for (Contact num : contacts) {
+
             if (Collections.frequency(contacts, num) > 1) {
                 displayContact.add(num);}}
                 displayUserContactDetails(contacts);
@@ -84,7 +85,7 @@ public class AddressFun {
     static void displayUserContactDetails(List<Contact>contacts) {
         //To display personal details
         contacts.forEach(System.out::println);
-        //getUserContactDetails();
+        displayContactsByCity(contacts);
 //        List<Contact> displayContact = new ArrayList<L>();
 //        for (Contact num : contacts) {
 //            if (Collections.frequency(contacts, num) > 1) {
@@ -163,5 +164,16 @@ public class AddressFun {
     }
 
 
+    static void displayContactsByCity(List<Contact>contacts) {
+        System.out.println("Please enter the name of city:");
+        String choice = sc.nextLine();
+        for (int i = 0; i< contacts.size(); i++)
+        {
+            if (contacts.get(i).getCity() == choice );
+               // return contacts.get(i);
+        }
+        System.out.println("Address Book of City: "+choice+" "+contacts);
+
+    }
 }
 

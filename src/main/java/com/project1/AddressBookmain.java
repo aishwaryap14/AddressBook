@@ -23,7 +23,7 @@ public class AddressBookmain {
             case 1:   addressFun.createMultipleAddressBook();
                      //break;
             //case 2:  addressFun.findDuplicateContacts();
-
+            //case 2:addressFun.displayContactsByCity();
 
             case 3:  addressFun.editContactDetails();
                      break;
