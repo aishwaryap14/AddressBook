@@ -22,8 +22,8 @@ public class AddressBookmain {
             // Adding personal details to address book
             case 1:   addressFun.createMultipleAddressBook();
                      //break;
-            case 2:  addressFun.displayUserContactDetails();
-                     
+            //case 2:  addressFun.findDuplicateContacts();
+
 
             case 3:  addressFun.editContactDetails();
                      break;

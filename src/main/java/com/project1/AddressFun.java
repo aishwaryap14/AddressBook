@@ -1,11 +1,13 @@
 package com.project1;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressFun {
+    //private static Object contact;
     AddressBookmain addressBookmain=new AddressBookmain();
     private static int count;
-    Contact contact;
+    private static Contact contact;
     private static Scanner sc = new Scanner(System.in);
 
     public static List<Contact> contacts = new ArrayList();
@@ -26,7 +28,7 @@ public class AddressFun {
             System.out.println("enter the City names To create different Address Books: ");
             String cityName=sc.nextLine();
             contactStringMap.put(contacts, cityName);
-            getUserContactDetails(contactStringMap.get(i));
+            getUserContactDetails();
             //cityCount++;
         }
 
@@ -34,7 +36,7 @@ public class AddressFun {
     }
 
     //Create contacts in address book
-    static Contact getUserContactDetails(String s) {
+    static Contact getUserContactDetails() {
         System.out.println("Enter City= ");
         String city = sc.nextLine();
        //if(city.equalsIgnoreCase())
@@ -57,22 +59,43 @@ public class AddressFun {
         Contact contact = new Contact(firstname, lastname, phoneNo, email, address, city, state, zip);
         contacts.add(contact);
         count++;
-
+       findDuplicateContacts(contacts);
+       // displayUserContactDetails(contacts);
         return contact;
-
     }
 
-    static void displayUserContactDetails()
-    {
+
+
+    static void findDuplicateContacts(List<Contact> contacts) {
+//        Set<Contact> duplicate =contacts.stream().filter(i -> Collections.frequency(contacts,i) > 1)
+//               .collect(Collectors.toSet());
+//        if(contacts.equals(duplicate.iterator()))
+//      duplicate.addAll(contacts);
+//        System.out.println(duplicate);
+//        displayUserContactDetails(contacts);
+
+        List<Contact> displayContact = new ArrayList<>();
+        for (Contact num : contacts) {
+            if (Collections.frequency(contacts, num) > 1) {
+                displayContact.add(num);}}
+                displayUserContactDetails(contacts);
+    }
+
+    static void displayUserContactDetails(List<Contact>contacts) {
         //To display personal details
-        for (int i = 0; i < count; i++) {
-            System.out.println("Person's Details: " + contacts.get(i));
-        }
+        contacts.forEach(System.out::println);
         //getUserContactDetails();
-    }
+//        List<Contact> displayContact = new ArrayList<L>();
+//        for (Contact num : contacts) {
+//            if (Collections.frequency(contacts, num) > 1) {
+//                displayContact.add(num);
+//            }
+//            System.out.println(displayContact);
+        }
 
 
-    static Contact editContactDetails() {
+    static Contact editContactDetails()
+    {
         System.out.println("Enter First name to modify details: ");
         String name = sc.nextLine();
         for (int i = 0; i < count; i++) {
@@ -116,7 +139,7 @@ public class AddressFun {
 
         Contact contact = new Contact();
         contacts.add(contact);
-        displayUserContactDetails();
+        displayUserContactDetails(contacts);
         return contact;
     }
 
@@ -136,6 +159,9 @@ public class AddressFun {
                 System.out.println("No such Contact Available !!");
             }
         }
-        displayUserContactDetails();
+        displayUserContactDetails(contacts);
     }
+
+
 }
+
