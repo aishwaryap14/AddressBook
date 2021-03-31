@@ -85,6 +85,7 @@ public class AddressFun {
     static void displayUserContactDetails(List<Contact>contacts) {
         //To display personal details
         contacts.forEach(System.out::println);
+        sortContactDetails(contacts);
         displayContactsByCity(contacts);
 //        List<Contact> displayContact = new ArrayList<L>();
 //        for (Contact num : contacts) {
@@ -178,9 +179,15 @@ public class AddressFun {
             else{
                 System.out.println("Wrong City name");}
                // return contacts.get(i);
-        }
+        } }
 
+    static void sortContactDetails(List<Contact>contacts)
+    {
+        Collections.sort(contacts, new SortAddress());
 
+        System.out.println("\nSorted by First name: ");
+        for (int i=0; i<contacts.size(); i++)
+            System.out.println(contacts.get(i));
     }
 }
 

@@ -7,7 +7,7 @@ public class AddressBookmain {
     private static int cityCount;
     Contact contact;
     private static AddressFun addressFun;
-
+    private static SortAddress sortAddress;
 
     public static void main(String[] args) {
         AddressBookmain addressBookmain = new AddressBookmain();
@@ -26,9 +26,10 @@ public class AddressBookmain {
             //case 2:addressFun.displayContactsByCity();
 
             case 3:  addressFun.editContactDetails();
-                     break;
+
             case 4:  addressFun.deleteContactDetails();
-                     break;
+            //case 5:  addressFun.sortContactDetails();
+
             default:
                     System.out.println("Wrong Choice !!");
                     main(args);
