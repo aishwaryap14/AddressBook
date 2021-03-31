@@ -1,13 +1,10 @@
 package com.project1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBookmain {
 
-
+    private static int cityCount;
     Contact contact;
     private static AddressFun addressFun;
 
@@ -17,20 +14,24 @@ public class AddressBookmain {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome To Address Book");
 
+
         System.out.println("Enter choice code for operation to perform: 1.Add contact details \n 2.Display Contact details \n" +
                 "3.Edit Contact details \n 4.Delete contact details");
         int choice=sc.nextInt();
         switch (choice) {
             // Adding personal details to address book
-            case 1:  addressBookmain.contact = addressFun.getUserContactDetails();
+            case 1:   addressFun.createMultipleAddressBook();
                      //break;
             case 2:  addressFun.displayUserContactDetails();
-                     //break;
+                     
+
             case 3:  addressFun.editContactDetails();
-                     //break;
+                     break;
             case 4:  addressFun.deleteContactDetails();
-                    // break;
-            default:main(args);
+                     break;
+            default:
+                    System.out.println("Wrong Choice !!");
+                    main(args);
 
         }
     }

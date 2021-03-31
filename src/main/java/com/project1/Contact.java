@@ -30,6 +30,11 @@ public class Contact {
 
     }
 
+    public Contact(String conCityname) {
+    }
+
+
+
     public String getFirstname() {
         return firstname;
     }

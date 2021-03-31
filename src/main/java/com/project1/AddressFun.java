@@ -1,20 +1,43 @@
 package com.project1;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressFun {
+    AddressBookmain addressBookmain=new AddressBookmain();
     private static int count;
     Contact contact;
     private static Scanner sc = new Scanner(System.in);
+
     public static List<Contact> contacts = new ArrayList();
+
     //int count=0;
 
-    //Create contacts in address book
-    static Contact getUserContactDetails() {
-        //Contact c;
+    static void createMultipleAddressBook()
+    {
+        //Add multiple Address Books
+        System.out.println("Enter the number of Address Books created: ");
+        int n=sc.nextInt();
+        Contact[] contactsBook=new Contact[n];
 
+
+        Map<List<Contact>,String> contactStringMap=new HashMap<>();
+        for (int i=0;i<n;i++)
+        {
+            System.out.println("enter the City names To create different Address Books: ");
+            String cityName=sc.nextLine();
+            contactStringMap.put(contacts, cityName);
+            getUserContactDetails(contactStringMap.get(i));
+            //cityCount++;
+        }
+
+        //return contacts;
+    }
+
+    //Create contacts in address book
+    static Contact getUserContactDetails(String s) {
+        System.out.println("Enter City= ");
+        String city = sc.nextLine();
+       //if(city.equalsIgnoreCase())
         System.out.println("Enter First Name= ");
         String firstname = sc.nextLine();
         System.out.println("Enter Last Name= ");
@@ -25,8 +48,7 @@ public class AddressFun {
         String email = sc.nextLine();
         System.out.println("Enter address= ");
         String address = sc.nextLine();
-        System.out.println("Enter City= ");
-        String city = sc.nextLine();
+
         System.out.println("Enter State= ");
         String state = sc.nextLine();
         System.out.println("Enter Zip= ");
@@ -40,18 +62,18 @@ public class AddressFun {
 
     }
 
-    static void displayUserContactDetails() {
+    static void displayUserContactDetails()
+    {
         //To display personal details
         for (int i = 0; i < count; i++) {
             System.out.println("Person's Details: " + contacts.get(i));
         }
-
-
+        //getUserContactDetails();
     }
 
 
     static Contact editContactDetails() {
-        System.out.println("Enter First name: ");
+        System.out.println("Enter First name to modify details: ");
         String name = sc.nextLine();
         for (int i = 0; i < count; i++) {
             Contact contact = contacts.get(i);
