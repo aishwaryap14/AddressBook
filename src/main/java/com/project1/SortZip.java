@@ -2,20 +2,17 @@ package com.project1;
 
 import java.util.Comparator;
 
-public class SortAddress implements Comparator<Contact> {
-
+public class SortZip implements Comparator<Contact> {
     @Override
     public int compare(Contact o1, Contact o2) {
-        int result = 0;
+        int zipRes=0;
         try {
-            result= o1.getFirstname().compareTo(o2.getFirstname());
+            zipRes= o1.getZip().compareTo(o2.getZip());
         }
         catch (NullPointerException e)
         {
-            
+
         }
-        return result;
+        return zipRes;
     }
-
-
 }

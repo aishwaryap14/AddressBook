@@ -29,17 +29,13 @@ public class AddressFun {
             String cityName=sc.nextLine();
             contactStringMap.put(contacts, cityName);
             getUserContactDetails();
-            //cityCount++;
         }
-
-        //return contacts;
-    }
+    } //End of createMultipleAddressBook
 
     //Create contacts in address book
     static Contact getUserContactDetails() {
         System.out.println("Enter City= ");
         String city = sc.nextLine();
-       //if(city.equalsIgnoreCase())
         System.out.println("Enter First Name= ");
         String firstname = sc.nextLine();
         System.out.println("Enter Last Name= ");
@@ -50,7 +46,6 @@ public class AddressFun {
         String email = sc.nextLine();
         System.out.println("Enter address= ");
         String address = sc.nextLine();
-
         System.out.println("Enter State= ");
         String state = sc.nextLine();
         System.out.println("Enter Zip= ");
@@ -59,127 +54,129 @@ public class AddressFun {
         Contact contact = new Contact(firstname, lastname, phoneNo, email, address, city, state, zip);
         contacts.add(contact);
         count++;
-       findDuplicateContacts(contacts);
-       // displayUserContactDetails(contacts);
+        findDuplicateContacts(contacts);
         return contact;
-    }
+    } //End of getUserContactDetails
 
 
 
-    static void findDuplicateContacts(List<Contact> contacts) {
-//        Set<Contact> duplicate =contacts.stream().filter(i -> Collections.frequency(contacts,i) > 1)
-//               .collect(Collectors.toSet());
-//        if(contacts.equals(duplicate.iterator()))
-//      duplicate.addAll(contacts);
-//        System.out.println(duplicate);
-//        displayUserContactDetails(contacts);
-
+    static void findDuplicateContacts(List<Contact> contacts)
+    {
         List<Contact> displayContact = new ArrayList<>();
-        for (Contact num : contacts) {
+        for (Contact num : contacts)
+        {
 
-            if (Collections.frequency(contacts, num) > 1) {
-                displayContact.add(num);}}
-                displayUserContactDetails(contacts);
-    }
-
-    static void displayUserContactDetails(List<Contact>contacts) {
-        //To display personal details
-        contacts.forEach(System.out::println);
-        sortContactDetails(contacts);
-        displayContactsByCity(contacts);
-//        List<Contact> displayContact = new ArrayList<L>();
-//        for (Contact num : contacts) {
-//            if (Collections.frequency(contacts, num) > 1) {
-//                displayContact.add(num);
-//            }
-//            System.out.println(displayContact);
+            if (Collections.frequency(contacts, num) > 1)
+            {
+                displayContact.add(num);
+            }
         }
+                displayUserContactDetails(contacts);
+    }//End of findDuplicateContacts
+
+    static void displayUserContactDetails(List<Contact>contacts)
+    {
+        contacts.forEach(System.out::println);
+        displayContactsByCity(contacts);
+        sortContactDetails(contacts);
+        sortByZipCode(contacts);
+    } //End of displayUserContactDetails
 
 
     static Contact editContactDetails()
     {
         System.out.println("Enter First name to modify details: ");
         String name = sc.nextLine();
-        for (int i = 0; i < count; i++) {
-            Contact contact = contacts.get(i);
+             if(name.equals(contact.getFirstname()) )
+            {
+                  for (int i = 0; i < count; i++) {
+                  Contact contact = contacts.get(i);
+                    System.out.println("Enter below details: ");
+                    System.out.println("Update First Name= ");
+                    String firstname = sc.nextLine();
+                    System.out.println("Update Last Name= ");
+                    String lastname = sc.nextLine();
+                    System.out.println("Update Phone Number= ");
+                    String phoneNo = sc.nextLine();
+                    System.out.println("Update E-mail address= ");
+                    String email = sc.nextLine();
+                    System.out.println("Update address= ");
+                    String address = sc.nextLine();
+                    System.out.println("Update City= ");
+                    String city = sc.nextLine();
+                    System.out.println("Update State= ");
+                    String state = sc.nextLine();
+                    System.out.println("Update Zip= ");
+                    String zip = sc.nextLine();
 
-            if (name.equalsIgnoreCase(contact.getFirstname())) {
-                System.out.println("Enter below details: ");
-
-                System.out.println("Update First Name= ");
-                String firstname = sc.nextLine();
-                System.out.println("Update Last Name= ");
-                String lastname = sc.nextLine();
-                System.out.println("Update Phone Number= ");
-                String phoneNo = sc.nextLine();
-                System.out.println("Update E-mail address= ");
-                String email = sc.nextLine();
-                System.out.println("Update address= ");
-                String address = sc.nextLine();
-                System.out.println("Update City= ");
-                String city = sc.nextLine();
-                System.out.println("Update State= ");
-                String state = sc.nextLine();
-                System.out.println("Update Zip= ");
-                String zip = sc.nextLine();
-
-                contact.setLastname(lastname);
-                contact.setPhoneNo(phoneNo);
-                contact.setEmail(email);
-                contact.setAddress(address);
-                contact.setCity(city);
-                contact.setState(state);
-                contact.setZip(zip);
-
+                    contact.setLastname(lastname);
+                    contact.setPhoneNo(phoneNo);
+                    contact.setEmail(email);
+                    contact.setAddress(address);
+                    contact.setCity(city);
+                    contact.setState(state);
+                    contact.setZip(zip);
+            }
             }
             else
             {
                 System.out.println("No such Contact Available !!");
             }
-
-        }
-
-        Contact contact = new Contact();
+        
         contacts.add(contact);
         displayUserContactDetails(contacts);
-        return contact;
-    }
+     return contact;
+    }// End of editContactDetails
 
     static void deleteContactDetails()
     {
         System.out.println("Enter First name which you want to delete: ");
         String name = sc.nextLine();
-        for (int i = 0; i < count; i++) {
-            Contact contact = contacts.get(i);
+
+
             if (name.equalsIgnoreCase(contact.getFirstname()))
             {
+                for (int i = 0; i < count; i++) {
+                    Contact contact = contacts.get(i);
                 contacts.remove(i);
                 count--;
-            }
+            }  }
             else
             {
                 System.out.println("No such Contact Available !!");
             }
-        }
+        
         displayUserContactDetails(contacts);
-    }
+    }  //End of deleteContactDetails
 
 
-    static void displayContactsByCity(List<Contact>contacts) {
+    static void displayContactsByCity(List<Contact>contacts)
+    {
         System.out.println("Please enter the name of city:");
         String choice = sc.nextLine();
         int countContacts=0;
         for (int i = 0; i< contacts.size(); i++)
         {
-            if (contacts.get(i).getCity().equalsIgnoreCase(choice)  ) {
+            try
+            {
+                if (contacts.get(i).getCity().equalsIgnoreCase(choice)  )
+                {
                 countContacts++;
                 System.out.println("Address Book of City: " + choice + " " + contacts);
                 System.out.println("There are total " + countContacts + "Contacts available of City: " + choice);
+                }
+            else
+                {
+                System.out.println("Wrong City name");
+                }
             }
-            else{
-                System.out.println("Wrong City name");}
-               // return contacts.get(i);
-        } }
+            catch (NullPointerException e)
+            {
+                
+            }
+        }
+
+    } //End of displayContactsByCity
 
     static void sortContactDetails(List<Contact>contacts)
     {
@@ -187,7 +184,21 @@ public class AddressFun {
 
         System.out.println("\nSorted by First name: ");
         for (int i=0; i<contacts.size(); i++)
+        {
             System.out.println(contacts.get(i));
-    }
+        }
+    } //End of sortContactDetails
+
+    static  void sortByZipCode(List<Contact>contacts)
+    {
+        Collections.sort(contacts, new SortZip());
+
+        System.out.println("\nSorted by zip code: ");
+        for (int i=0; i<contacts.size(); i++)
+        {
+            System.out.println(contacts.get(i));
+        }
+
+    }//End of sortByZipCode
 }
 

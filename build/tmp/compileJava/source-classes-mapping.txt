@@ -1,8 +1,10 @@
 com/project1/Contact.java
  com.project1.Contact
-com/project1/AddressFun.java
- com.project1.AddressFun
 com/project1/SortAddress.java
  com.project1.SortAddress
+com/project1/SortZip.java
+ com.project1.SortZip
+com/project1/AddressFun.java
+ com.project1.AddressFun
 com/project1/AddressBookmain.java
  com.project1.AddressBookmain

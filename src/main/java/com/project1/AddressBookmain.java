@@ -13,32 +13,11 @@ public class AddressBookmain {
         AddressBookmain addressBookmain = new AddressBookmain();
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome To Address Book");
+        addressFun.createMultipleAddressBook();
+        addressFun.editContactDetails();
+        addressFun.deleteContactDetails();
 
-
-        System.out.println("Enter choice code for operation to perform: 1.Add contact details \n 2.Display Contact details \n" +
-                "3.Edit Contact details \n 4.Delete contact details");
-        int choice=sc.nextInt();
-        switch (choice) {
-            // Adding personal details to address book
-            case 1:   addressFun.createMultipleAddressBook();
-                     //break;
-            //case 2:  addressFun.findDuplicateContacts();
-            //case 2:addressFun.displayContactsByCity();
-
-            case 3:  addressFun.editContactDetails();
-
-            case 4:  addressFun.deleteContactDetails();
-            //case 5:  addressFun.sortContactDetails();
-
-            default:
-                    System.out.println("Wrong Choice !!");
-                    main(args);
-
-        }
-    }
-
-
-
+    }//End of main
 
     public boolean createContact(Contact contact)
     {
